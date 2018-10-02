@@ -1,17 +1,19 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-
+import PropTypes from "prop-types"
+import TodoItem from "./TodoItem"
 
 class TodoList extends Component {
   render() {
     return (
       <ul>
-          <li>Todo1</li>
-          <li>Todo2</li>
-          <li>Todo3</li>
-      </ul>
+        {this.props.todos.map((todo) => <TodoItem key={todo.id} todo={todo}></TodoItem>)}
+      </ul>  
     );
   }
+}
+
+TodoItem.propTypes = {
+  todo: PropTypes.array.isRequired
 }
 
 export default TodoList;
